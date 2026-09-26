@@ -1,0 +1,25 @@
+{
+  "albums": [
+    {
+      "title": "Heroes Company's Autumn Meeting",
+      "slug": "heroes-company-s-autumn-meeting",
+      "date": "2026-9-25",
+      "description": "A small mid-autumn meeting hosted by Nam Hai and Thanh Tai",
+      "cover": "1I2cnhHMTv2LGkJRdAX2wMalJ0ungQzEJ",
+      "items": [
+        {
+          "id": "1I2cnhHMTv2LGkJRdAX2wMalJ0ungQzEJ",
+          "type": "image",
+          "caption": "Everyone!",
+          "date": "2026-09-25"
+        },
+        {
+          "id": "1FW0LNzMalJ1djCHMGyvsOmoF5E92nX9b",
+          "type": "image",
+          "caption": "Warm-up Game",
+          "date": "2025-03-13"
+        }
+      ]
+    }
+  ]
+}

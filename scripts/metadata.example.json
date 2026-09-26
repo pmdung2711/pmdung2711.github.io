@@ -1,0 +1,12 @@
+{
+  "title": "Đà Lạt trip",
+  "date": "2025-03",
+  "description": "Pine forests, foggy mornings and too much coffee.",
+  "cover": "pine_forest.jpg",
+  "items": [
+    { "file": "pine_forest.jpg", "caption": "Pine forest at dawn" },
+    { "file": "waterfall.mp4", "caption": "Datanla falls", "date": "2025-03-13" },
+    { "file": "market.jpg" },
+    { "file": "blurry.jpg", "hidden": true }
+  ]
+}

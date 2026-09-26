@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Hello, world (and hello, cat)",
+    "date": "2025-01-01",
+    "summary": "The first post on my new site: why I made it and what to expect here.",
+    "tags": ["life", "meta"]
+  }
+]
