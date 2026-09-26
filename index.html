@@ -3,82 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My GitHub Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #f4f4f9;
-            scroll-behavior: smooth;
-        }
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
-        }
-        .welcome {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            align-items: center;
-            text-align: left;
-        }
-        .welcome-text {
-            flex: 1;
-            padding: 20px;
-        }
-        .welcome-text h1 {
-            font-size: 2.5em;
-            color: #363636;
-        }
-        .buttons a {
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 10px;
-            background-color: #4a90e2;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .welcome-image {
-            flex: 1;
-            padding: 20px;
-        }
-        .welcome-image img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 2em;
-            color: #4a90e2;
-        }
-        @media (max-width: 768px) {
-            .welcome {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <title>Dustin's Gallery</title>
+    <meta name="description" content="A space where my stories unfold and journeys come alive.">
+    <meta name="theme-color" content="#fdfaf3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap">
+    <meta property="og:title" content="Dustin's Gallery">
+    <meta property="og:description" content="A space where my stories unfold and journeys come alive.">
+    <meta property="og:image" content="https://pmdung2711.github.io/assets/img/cover.png">
+    <link rel="icon" href="assets/img/cats/cat-face.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="welcome">
-            <div class="welcome-text">
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main">
+            <a class="brand" href="index.html">
+                <img src="assets/img/cats/cat-face.svg" alt="">
+                <span>Dustin</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-text">
                 <h1>Dustin's Gallery</h1>
                 <p>A space where my stories unfold and journeys come alive.</p>
+                <div class="buttons">
+                    <a class="btn" href="journey.html">My journey</a>
+                    <a class="btn btn-ghost" href="gallery.html">See the gallery</a>
+                </div>
             </div>
-            <div class="welcome-image">
-                <img src="cover.png" alt="Welcome Image">
+            <div class="hero-image">
+                <img src="assets/img/cover.png" alt="Line drawing of a cat leaping through the stars">
             </div>
-        </div>
-    </header>
-   
+            <a class="scroll-cue" href="#profile">
+                <span>about me</span>
+                <svg viewBox="0 0 40 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 3 C 14 12, 26 18, 19 27 S 22 42, 20 50"/>
+                    <path d="M11 41 L20 51 L29 40"/>
+                </svg>
+            </a>
+        </section>
+
+        <div class="paw-divider" aria-hidden="true"><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""></div>
+
+        <!-- ===== Profile ===== -->
+        <section class="section container reveal" id="profile">
+            <h2 class="section-title">Hi, I'm Dustin</h2>
+            <div class="card profile">
+                <!-- Swap for a real photo: <img class="avatar" src="assets/img/me.jpg" alt="Dustin"> -->
+                <div class="avatar" role="img" aria-label="Avatar"></div>
+                <div>
+                    <p class="role">AI Engineer · Cat enthusiast · Photographer · Home cook</p>
+                    <p>I teach computers to see things. Lately, that means fish (more on that in my <a href="journey.html">journey</a>). When I'm not training models, I'm behind a camera, in front of a stove, or trying to befriend every cat in a 5 km radius. The cameras cooperate. The cats, rarely.</p>
+                    <ul class="socials">
+                        <li><a href="https://github.com/pmdung2711" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/pmdung2711" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:pmdung2711@gmail.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="paw-divider" aria-hidden="true"><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""></div>
+
+        <!-- ===== Where I live ===== -->
+        <section class="section container reveal" id="where">
+            <h2 class="section-title">Where I live</h2>
+            <p class="section-lead">Coordinates of the human who feeds this website.</p>
+            <div class="location">
+                <div class="card">
+                    <h3>Da Nang, Vietnam</h3>
+                    <p class="muted">Beaches, mountains, and a bridge shaped like a dragon that literally breathes fire on weekend nights. Yes, really. It's the most dramatic commute in the country.</p>
+                    <p class="muted">Originally from Quang Binh, the land of giant caves, so exploring dark places comes naturally. These days it's mostly the fridge at midnight.</p>
+                    <dl>
+                        <dt>Home base</dt><dd>Da Nang</dd>
+                        <dt>Hometown</dt><dd>Quang Binh</dd>
+                        <dt>Timezone</dt><dd>GMT+7 (replies may be delayed by cat naps)</dd>
+                    </dl>
+                </div>
+                <!-- Get a new embed from openstreetmap.org → Share → HTML -->
+                <figure class="polaroid">
+                    <iframe class="map" title="Map of where I live" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=108.13%2C16.00%2C108.29%2C16.12&amp;layer=mapnik&amp;marker=16.0544%2C108.2022"></iframe>
+                    <figcaption>home sweet home ♡</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <div class="paw-divider" aria-hidden="true"><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""><img src="assets/img/cats/paw.svg" alt=""></div>
+
+        <section class="section container reveal">
+            <h2 class="section-title">Take a look around</h2>
+            <div class="tiles">
+                <a class="card tile" href="journey.html">
+                    <img class="icon" src="assets/img/doodles/compass.svg" alt="">
+                    <h3>Journey</h3>
+                    <p class="muted">The path so far: school, work, and the moves in between.</p>
+                </a>
+                <a class="card tile" href="gallery.html">
+                    <img class="icon" src="assets/img/doodles/camera.svg" alt="">
+                    <h3>Gallery</h3>
+                    <p class="muted">Photos and videos from places I've been.</p>
+                </a>
+                <a class="card tile" href="blog.html">
+                    <img class="icon" src="assets/img/doodles/pencil.svg" alt="">
+                    <h3>Blog</h3>
+                    <p class="muted">Notes, stories, and things I've learned.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <img class="walking-cat" src="assets/img/cats/cat-walking.svg" alt="">
+        <p>© <span id="year">2025</span> Dustin · made with 🐾 and a lot of naps</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
