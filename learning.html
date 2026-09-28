@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog · Dustin</title>
-    <meta name="description" content="Notes, stories, and things I've learned.">
+    <title>Learning · Dustin</title>
+    <meta name="description" content="Courses I'm taking and the study desks I built for them.">
     <meta name="theme-color" content="#fdfaf3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap">
-    <meta property="og:title" content="Blog · Dustin">
-    <meta property="og:description" content="Notes, stories, and things I've learned.">
+    <meta property="og:title" content="Learning · Dustin">
+    <meta property="og:description" content="Courses I'm taking and the study desks I built for them.">
     <meta property="og:image" content="https://pmdung2711.github.io/assets/img/cover.png">
     <link rel="icon" href="assets/img/cats/cat-face.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -35,12 +35,13 @@
 
     <main>
         <section class="page-head container">
-            <h1>Blog</h1>
-            <p>Notes, stories, and things I've learned. Written between cat naps.</p>
+            <a class="post-back" id="course-back" href="learning.html" hidden>← All courses</a>
+            <h1 id="learning-title">Learning</h1>
+            <p id="learning-lead">Courses I'm taking and the study desks I built for them. Curiosity, but make it structured.</p>
         </section>
 
         <section class="section container">
-            <ul class="post-list" id="post-list"></ul>
+            <ul class="post-list" id="learning-list" aria-live="polite"></ul>
         </section>
     </main>
 
@@ -50,6 +51,6 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/blog.js"></script>
+    <script src="assets/js/learning.js"></script>
 </body>
 </html>
