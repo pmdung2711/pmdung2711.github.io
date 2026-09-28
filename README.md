@@ -10,6 +10,7 @@ Personal portfolio at **https://pmdung2711.github.io**. It's plain HTML, CSS, an
 | Journey timeline | `journey.html` |
 | Gallery albums (Google Drive) | `gallery.html` + `data/gallery.json` |
 | Blog list / single post | `blog.html`, `post.html` + `posts/` |
+| Learning courses / study desks | `learning.html` + `data/learning.json` + `learning/` |
 | Not found | `404.html` |
 
 Text wrapped in `<span class="placeholder">` shows a yellow highlight. Replace it with your own content, then remove the span.
@@ -127,6 +128,24 @@ With `--scaffold`, fill in the generated files and upload each one into its albu
    ```
    Slugs can only use letters, numbers, and dashes.
 3. Commit and push. The post appears at `post.html?slug=my-post-slug`.
+
+## Add a course or study desk
+
+The Learning page lists courses from `data/learning.json`. Clicking one opens `learning.html?course=<slug>`, which lists its study desks.
+
+1. Put the study desk HTML in `learning/<course-slug>/`, e.g. `learning/claude-certification/ccao-f-study-desk.html`. Use a lowercase name without spaces.
+2. Add it to the course's `materials` (or add a new course to `courses`):
+   ```json
+   {
+     "title": "CCAO-F Study Desk",
+     "subtitle": "Claude Certified Associate – Foundations",
+     "description": "One line teaser",
+     "href": "learning/claude-certification/ccao-f-study-desk.html",
+     "tags": ["claude"]
+   }
+   ```
+   A course without a `slug` gets one from its title.
+3. Commit and push.
 
 ## Change the map
 
