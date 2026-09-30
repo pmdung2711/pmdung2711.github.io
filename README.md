@@ -11,6 +11,7 @@ Personal portfolio at **https://pmdung2711.github.io**. It's plain HTML, CSS, an
 | Gallery albums (Google Drive) | `gallery.html` + `data/gallery.json` |
 | Blog list / single post | `blog.html`, `post.html` + `posts/` |
 | Learning courses / study desks | `learning.html` + `data/learning.json` + `learning/` |
+| Games | `games.html` + `data/games.json` + `games/` |
 | Not found | `404.html` |
 
 Text wrapped in `<span class="placeholder">` shows a yellow highlight. Replace it with your own content, then remove the span.
@@ -145,6 +146,23 @@ The Learning page lists courses from `data/learning.json`. Clicking one opens `l
    }
    ```
    A course without a `slug` gets one from its title.
+3. Commit and push.
+
+## Add a game
+
+The Games page lists games from `data/games.json`. Each entry links straight to a self-contained HTML file.
+
+1. Put the game in `games/<game-slug>/`, e.g. `games/fishwell-arcade/fishwell-arcade.html`. Use a lowercase name without spaces.
+2. Add it to `games`:
+   ```json
+   {
+     "title": "Fishwell Arcade",
+     "subtitle": "Salmon farming · Norway",
+     "description": "One line teaser",
+     "href": "games/fishwell-arcade/fishwell-arcade.html",
+     "tags": ["arcade"]
+   }
+   ```
 3. Commit and push.
 
 ## Change the map

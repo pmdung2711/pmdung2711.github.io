@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery · Dustin</title>
-    <meta name="description" content="Photos and videos from my journey.">
+    <title>Games · Dustin</title>
+    <meta name="description" content="Small browser games I built. Playable right here, no install.">
     <meta name="theme-color" content="#fdfaf3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap">
-    <meta property="og:title" content="Gallery · Dustin">
-    <meta property="og:description" content="Photos and videos from my journey.">
+    <meta property="og:title" content="Games · Dustin">
+    <meta property="og:description" content="Small browser games I built. Playable right here, no install.">
     <meta property="og:image" content="https://pmdung2711.github.io/assets/img/cover.png">
     <link rel="icon" href="assets/img/cats/cat-face.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -36,29 +36,13 @@
 
     <main>
         <section class="page-head container">
-            <a class="post-back" id="album-back" href="gallery.html" hidden>← All albums</a>
-            <h1 id="gallery-title">Gallery</h1>
-            <p id="gallery-lead">Moments worth keeping, one album at a time.</p>
+            <h1>Games</h1>
+            <p>Small browser games I built for fun. No install, no login — just open one and play.</p>
         </section>
 
         <section class="section container">
-            <div class="filters" id="filters" role="group" aria-label="Filter album" hidden>
-                <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-                <button class="chip" type="button" data-filter="image" aria-pressed="false">Photos</button>
-                <button class="chip" type="button" data-filter="video" aria-pressed="false">Videos</button>
-            </div>
-
-            <div class="grid" id="gallery-grid" aria-live="polite">
-                <div class="state" style="grid-column: 1 / -1"><p>Loading…</p></div>
-            </div>
+            <ul class="post-list" id="games-list" aria-live="polite"></ul>
         </section>
-
-        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
-            <button class="lb-btn lb-close" type="button" aria-label="Close">×</button>
-            <button class="lb-btn lb-prev" type="button" aria-label="Previous">‹</button>
-            <div class="lightbox-stage"></div>
-            <button class="lb-btn lb-next" type="button" aria-label="Next">›</button>
-        </div>
     </main>
 
     <footer class="site-footer">
@@ -67,6 +51,6 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/games.js"></script>
 </body>
 </html>

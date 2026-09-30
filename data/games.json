@@ -1,0 +1,11 @@
+{
+  "games": [
+    {
+      "title": "Fishwell Arcade",
+      "subtitle": "Salmon farming · Norway",
+      "description": "Arcade mini games from a working day at the fish farm. Swim against the dead-fish belt in Dead Fish Survival, then send salmon into the treatment tank on the beat in Fish Beat Flow. Keyboard or touch, English or Norwegian, high scores saved in your browser.",
+      "href": "games/fishwell-arcade/fishwell-arcade.html",
+      "tags": ["arcade", "canvas", "salmon"]
+    }
+  ]
+}
