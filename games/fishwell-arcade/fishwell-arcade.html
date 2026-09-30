@@ -215,6 +215,15 @@ input[type=range]{flex:1;accent-color:var(--aqua);height:32px;min-width:0}
     </div>
   </section>
 
+  <!-- BRIEFING: how to play, shown before a game starts -->
+  <section id="scr-brief" class="screen modal" hidden>
+    <div class="inner">
+      <div class="scr-head"><button class="btn back" data-back aria-label="Back">←</button><div><p class="eyebrow" data-i18n="howto.title">How to play</p><h2 id="brief-title"></h2></div></div>
+      <div class="howto" id="brief-body"></div>
+      <div class="howto-actions"><button class="btn btn-primary" id="brief-play"><span data-i18n="howto.start">Start game</span></button></div>
+    </div>
+  </section>
+
   <!-- SETTINGS -->
   <section id="scr-settings" class="screen" hidden>
     <div class="inner">
@@ -1905,10 +1914,10 @@ const $ = (s) => document.querySelector(s);
 const canvas = $('#game'), g = canvas.getContext('2d');
 const scene = new PenScene();
 const menuSong = makeMenuSong();
-const screens = ['scr-menu', 'scr-select', 'scr-howto', 'scr-settings', 'scr-pause', 'scr-over'].map((id) => document.getElementById(id));
+const screens = ['scr-menu', 'scr-select', 'scr-howto', 'scr-brief', 'scr-settings', 'scr-pause', 'scr-over'].map((id) => document.getElementById(id));
 
 const S = {
-  state: 'menu', prev: 'menu', game: null, def: null, howtoId: GAMES[0].id,
+  state: 'menu', prev: 'menu', game: null, def: null, howtoId: GAMES[0].id, briefId: null,
   W: 0, H: 0, dpr: 1, acc: 0, last: performance.now(), hudEls: null, resetArmed: false, bannerTimer: 0,
 };
 
@@ -1946,11 +1955,20 @@ function goHowto(id, from) {
   S.prev = from || S.state; S.howtoId = id || S.howtoId; S.state = 'howto';
   renderHowto(); showScreen('scr-howto'); focusFirst('scr-howto');
 }
+function goBrief(id) {
+  S.briefId = id; S.state = 'brief';
+  const def = GAMES.find((d) => d.id === id) || GAMES[0];
+  $('#brief-title').textContent = Lx(def.name);
+  fillHowto($('#brief-body'), def);
+  showScreen('scr-brief'); focusFirst('scr-brief');
+  $('#scr-brief').scrollTop = 0;
+}
 function goSettings() {
   S.prev = S.state; S.state = 'settings'; S.resetArmed = false; $('#reset-note').textContent = '';
   syncSettings(); showScreen('scr-settings'); focusFirst('scr-settings');
 }
 function goBack() {
+  if (S.state === 'brief') { goSelect(); return; }
   if (S.state === 'howto' || S.state === 'settings') { S.prev === 'select' ? goSelect() : goMenu(); return; }
   if (S.state === 'select') goMenu();
 }
@@ -2050,7 +2068,7 @@ function renderSelect() {
     best.append(t('select.best') + ' ', bb);
     const act = document.createElement('div'); act.className = 'card-actions';
     const bh = button(t('btn.howto'), 'btn', () => goHowto(def.id, 'select'));
-    const bp = button(t('btn.play'), 'btn btn-primary', () => startGame(def.id));
+    const bp = button(t('btn.play'), 'btn btn-primary', () => goBrief(def.id));
     act.append(bh, bp);
     body.append(h, p, best, act);
     card.append(cv, body); box.append(card);
@@ -2089,7 +2107,10 @@ function renderHowto() {
     b.addEventListener('click', () => { S.howtoId = d.id; renderHowto(); });
     tabs.append(b);
   }
-  const body = $('#howto-body'); body.replaceChildren();
+  fillHowto($('#howto-body'), def);
+}
+function fillHowto(body, def) {
+  body.replaceChildren();
   const left = document.createElement('section'); left.className = 'panel';
   const add = (parent, tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; parent.append(e); return e; };
   add(left, 'h3', null, t('howto.story'));
@@ -2133,6 +2154,7 @@ function setLang(l) {
   for (const b of document.querySelectorAll('[data-lang]')) b.setAttribute('aria-pressed', String(b.dataset.lang === l));
   if (S.state === 'select') renderSelect();
   if (S.state === 'howto') renderHowto();
+  if (S.state === 'brief') goBrief(S.briefId);
   S.hudEls = null;
 }
 
@@ -2143,6 +2165,7 @@ function wire() {
   on('#m-howto', () => goHowto(S.howtoId, 'menu'));
   on('#m-settings', goSettings);
   on('#howto-play', () => startGame(S.howtoId));
+  on('#brief-play', () => startGame(S.briefId));
   on('#p-resume', resumeGame);
   on('#p-restart', () => startGame(S.def.id));
   on('#p-quit', goMenu);
@@ -2190,7 +2213,7 @@ function wire() {
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
   // First interaction unlocks audio and starts the menu music.
-  const unlock = () => { Audio.init(); if (['menu', 'select', 'howto', 'settings'].includes(S.state)) ensureMenuMusic(); };
+  const unlock = () => { Audio.init(); if (['menu', 'select', 'howto', 'brief', 'settings'].includes(S.state)) ensureMenuMusic(); };
   window.addEventListener('pointerdown', unlock, { capture: true });
   window.addEventListener('keydown', unlock, { capture: true });
 
@@ -2211,7 +2234,7 @@ function wire() {
       case 'over':
         if (code === 'Escape') goSelect();
         break;
-      case 'select': case 'howto': case 'settings':
+      case 'select': case 'howto': case 'brief': case 'settings':
         if (code === 'Escape') goBack();
         break;
     }
